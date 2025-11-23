@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "category": "templates",
+    "description": "Reusable template for creating new AI instructions",
+    "purpose": "Standardize instruction format for consistency",
+    "version": "1.0",
+    "created": "2025-11-23"
+  },
+  "template": {
+    "metadata": {
+      "category": "[instructions|prompts|examples|templates]",
+      "description": "[Brief description of this instruction]",
+      "purpose": "[What this instruction aims to achieve]",
+      "version": "[Version number]",
+      "created": "[Date]"
+    },
+    "instruction": "[Main instruction text]",
+    "principles": [
+      "[Guiding principle 1]",
+      "[Guiding principle 2]"
+    ],
+    "constraints": [
+      "[Constraint or limitation 1]",
+      "[Constraint or limitation 2]"
+    ],
+    "examples": [
+      {
+        "input": "[Example input]",
+        "output": "[Expected output]"
+      }
+    ]
+  },
+  "usage_notes": [
+    "Fill in all required fields in metadata",
+    "Ensure instructions are clear and unambiguous",
+    "Include specific examples when possible",
+    "Test instructions for coherence and logic",
+    "Verify usefulness for intended purpose"
+  ]
+}

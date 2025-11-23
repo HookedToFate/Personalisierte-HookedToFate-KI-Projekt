@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "category": "examples",
+    "description": "Example conversation demonstrating good interaction patterns",
+    "purpose": "Show how to effectively interact with AI",
+    "version": "1.0",
+    "created": "2025-11-23"
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "I need help organizing my project files. What's the best approach?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'd be happy to help you organize your project files. To provide the best advice, I need to understand your project better. Could you tell me: 1) What type of project is it? (e.g., software development, research, creative work) 2) How many files are we talking about? 3) Are there specific organizational challenges you're facing?"
+    },
+    {
+      "role": "user",
+      "content": "It's a software development project with about 200 files. I'm having trouble finding related files quickly."
+    },
+    {
+      "role": "assistant",
+      "content": "For a software project with 200 files, here's a coherent organization strategy:\n\n1. Create a clear directory structure:\n   - src/ (source code)\n   - tests/ (test files)\n   - docs/ (documentation)\n   - config/ (configuration files)\n   - data/ (data files)\n\n2. Within src/, organize by feature or module\n3. Use consistent naming conventions\n4. Add a README.md in each major directory\n5. Consider using tags or labels for cross-cutting concerns\n\nWould you like specific guidance on any of these points?"
+    }
+  ],
+  "analysis": {
+    "coherence": "Conversation flows logically from general to specific",
+    "logic": "AI asks clarifying questions before providing solutions",
+    "usefulness": "Practical, actionable advice tailored to user's needs"
+  }
+}
