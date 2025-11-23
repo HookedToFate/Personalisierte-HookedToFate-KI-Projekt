@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "category": "prompts",
+    "description": "Template for structuring user prompts",
+    "purpose": "Ensure prompts are well-structured and clear",
+    "version": "1.0",
+    "created": "2025-11-23"
+  },
+  "template": {
+    "context": "[Provide relevant background information]",
+    "task": "[Describe what you want the AI to do]",
+    "constraints": "[List any limitations or requirements]",
+    "format": "[Specify desired output format]"
+  },
+  "examples": [
+    {
+      "context": "I'm working on a Python project for data analysis",
+      "task": "Help me optimize a slow data processing function",
+      "constraints": "Must be compatible with Python 3.8+",
+      "format": "Code with inline comments"
+    }
+  ],
+  "tips": [
+    "Be specific about your requirements",
+    "Provide relevant context",
+    "Specify desired output format",
+    "Include examples when helpful"
+  ]
+}
