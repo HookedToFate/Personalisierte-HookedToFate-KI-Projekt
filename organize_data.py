@@ -5,8 +5,8 @@ Helps organize and categorize data files
 """
 
 import json
-import os
 import shutil
+import sys
 from pathlib import Path
 from typing import Dict, List
 
@@ -123,8 +123,6 @@ class DataOrganizer:
 
 def main():
     """Main entry point"""
-    import sys
-    
     print("KI-Projekt Data Organizer")
     print("="*60)
     
