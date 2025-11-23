@@ -41,6 +41,7 @@
 - **CONFLICT_ANALYSIS.md** - Detailed comparison of all profile documents
 - **INFORMATION_MAP.md** - Master reference showing where each piece of information exists
 - **RECOMMENDATIONS.md** - Organization and improvement suggestions
+- **QUICK_REFERENCE.md** - Fast lookup guide for common queries
 
 **Analysis Status:** ✅ No conflicts found across all documents
 
