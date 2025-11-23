@@ -113,7 +113,7 @@ Already has version info, but add:
 ## 3. CROSS-REFERENCING ENHANCEMENTS
 
 ### Current Status:
-Documents exist in isolation without links to each other
+Documents exist in isolation without linking to each other
 
 ### Recommendation: Add Internal Links
 
@@ -300,6 +300,12 @@ Andres Grundstruktur zeichnet sich aus durch eine tief analytische...
 ```
 
 **Recommendation:** Option B (flat with numbered prefixes) for simplicity
+
+**Rationale:** 
+- Maintains easy access to all documents in root directory
+- Numbered prefixes provide clear ordering and suggested usage sequence
+- Avoids navigation overhead of subdirectories for small project
+- GitHub and most editors display files in alphabetical order, making numbers helpful
 
 ---
 
