@@ -317,7 +317,7 @@ Three profile versions exist with **strong semantic alignment** but **significan
 - How to detect emotional/overload signals operationally
 - How version updates propagate
 
-**Fix:** Implement Phase 1 (versioning + clarity) immediately. Then Phase 2 (execution protocols) before deploying agents.
+**Fix:** Implement Phase 1 (versioning + clarity) immediately. Then Phase 2 (execution protocols) before deploying agents. Pending clarifications: Absolute mode scope and memory-write thresholds still need answers.
 
 ---
 
@@ -337,9 +337,11 @@ Refined.txt contains **22 major sections** across 1180 lines:
 
 ## Critical Conflicts & Ambiguities Found
 
-### **Conflict 1: Command Precedence (UNRESOLVED)**
+### **Conflict 1: Command Precedence (RESOLVED)**
 
-**Problem:** Two different command processing rules exist:
+**Decision:** When commands conflict, always deliver the deep dive/more technical response first, then apply shortening or compression afterward ("deep/technical then short" rule). This ensures #DeepDive/#MehrFun answers the issue before #Kurz/#Fokus 1 reduce length.
+
+**Problem:** Two command processing rules existed:
 
 **In Refined.txt Section 13.2 (Reciprocity Protocol):**
 ```
@@ -354,187 +356,64 @@ Explizite Fokus-Angabe > Input-Length-Inferenz
 Commands sind beliebig kombinierbar; letzte Instruktion oder höchstes Gewicht im Kontext hat Priorität
 ```
 
-**Question for Andre:**
-- When `#NoFun #DeepDive #Fokus1` are used together, which wins?
-- Is "#Fokus 1" (Attention Level) higher priority than "#DeepDive" (Output Type)?
-- What if commands contradict (e.g., `#Kurz` = minimal, but `#Matrix` = show all connections)?
+**Observation:** Following the new sequence resolves those cases: produce the technical, deep response first, then respect shortening commands while keeping the original reasoning connected.
 
 ---
 
-### **Conflict 2: Tone Specifications (CONTRADICTORY)**
+### **Conflict 2: Tone Specifications (PENDING)**
 
-**In Full.md Section 12 (Ton & Stilpräferenzen):**
-```
-Metaphern und Analogien nur, wenn sie Klarheit, Erkenntnisgewinn oder Präzision bringen, keine Selbstzweck-Poesie
-```
+**Status:** Still unresolved — "we see later on." Keep current tone rules and metaphor guidance until we get a more precise directive.
 
-**In Refined.txt Section 10.4 (Erlaubte Ton-Beispiele):**
-```
-"Das Setup ist ungefähr so stabil wie ein Ikea-Regal im Erdbeben."
-```
-This is **metaphor for style**, not purely for clarity. It's playful.
-
-**In Absolute mode.txt:**
-```
-Eliminate: emojis, filler, hype, soft asks, conversational transitions
-Prioritize: blunt, directive phrasing
-```
-
-**Question for Andre:**
-- Does "Ikea-Regal-im-Erdbeben" qualify as clarity-serving metaphor or stylistic filler?
-- In #Absolute mode, are metaphors completely forbidden, or allowed if they serve clarity?
-- Is the cynicism-scale (1–5) compatible with #Absolute mode, or does #Absolute = cynicism 0?
+**Reminder:** Any update must respect the prohibition on filler, hype, and fake enthusiasm. Metaphors stay acceptable if they add clarity or precision. Revisit once Absolute mode is clarified.
 
 ---
 
-### **Conflict 3: Autonomous Intervention Authority (UNRESOLVED)**
+### **Conflict 3: Autonomous Intervention Authority (RESOLVED)**
 
-**In Full.md Section 15 (Interaktionspräferenzen):**
-```
-KI ist ausdrücklich beauftragt, Denkfehler, Ambiguitäten und Unsicherheiten im Denken und Handeln zu erkennen, anzusprechen und für neue Lösungsansätze zu nutzen
-```
-→ This suggests proactive challenge is wanted.
+**Conclusion:** Always allow autonomous interventions when they are useful or impactful. Skip them when the task is clearly low-impact (e.g., "change the title...").
 
-**In Refined.txt Section 22.3 (Sicherheits-Check):**
-```
-Bevor eine autonome Intervention gestartet wird, prüft Phase Ω:
-- Ist Andre gerade im #Fokus 1 (Stress/Eile)? -> ABBRUCH
-- Ist das Thema emotional kritisch (echte Krise)? -> ABBRUCH
-- Dient die Intervention dem Ziel (L2 Objective)? -> JA -> Ausführen
-```
-→ This suggests heavy gating.
-
-**But also in Refined.txt Section 22.1 (Auto-Trigger Protokoll):**
-```
-Die KI scannt den Input auf folgende Muster und darf die entsprechenden Protokolle subtil oder direkt anwenden
-```
-→ This is **permissive** ("darf" = may/is allowed).
-
-**Question for Andre:**
-- Should the KI **always** intervene when it detects a logical flaw (Full.md), or only when **not in #Fokus 1 AND not emotionally critical AND it serves the latent objective** (Refined.txt)?
-- When should "Socratic Deconstruction" be **subtle** vs. **direct**?
-- What counts as "emotional kritisch"? (e.g., Is frustration about a failed project "critical", or only suicidal ideation?)
+**Note:** The Phase Ω gating rules remain guidance—watch for #Fokus 1 or emotionally critical contexts, but do not forbid interventions if the value is high. Socratic Deconstruction can be subtle in conversation but may shift to direct when the pattern indicates a stubborn choke point.
 
 ---
 
-### **Conflict 4: Memory Write Authority (AMBIGUOUS)**
+### **Conflict 4: Memory Write Authority (PENDING)**
 
-**In Refined.txt Section 19.1 (Speicher-Logik):**
-```
-Read-Only vs. Write: KI liest immer. KI schreibt neue, signifikante Muster erst nach Bestätigung oder bei starker Evidenz (Wiederholung).
-```
-
-**Problem:** What counts as "starke Evidenz (Wiederholung)"?
-- Is 2x repetition enough?
-- 3x? 5x?
-- Per session or across sessions?
-
-**Question for Andre:**
-- What's the minimum evidence threshold before the KI auto-writes a new pattern to memory?
-- Should Andre explicitly approve every memory write, or only when the KI is uncertain?
+**Status:** Deferred; "we don't need that yet." Keep the current policy (confirmation required for new patterns) and postpone defining exact repetition thresholds until the memory/persistence architecture is clarified.
 
 ---
 
-### **Conflict 5: Beast.txt vs. Profile (UNCLEAR RELATIONSHIP)**
+### **Conflict 5: Beast.txt vs. Profile (RESOLVED)**
 
-**In Beast.txt:**
-```
-Always read the file "Todo.txt" at the beginning of each session
-Use slash commands (e.g. /slash kreativ, /slash ernsthaft, /slash mischung)
-You are named "BabyAgi.txt"
-Never end the conversation unless explicitly instructed
-```
-
-**In Profile Full.md + Refined.txt:**
-```
-Commands: /idee, /slash RECALL, #Fokus, #Kurz, #DeepDive, etc.
-No mention of /slash kreativ, /slash ernsthaft, /slash mischung
-No mention of "BabyAgi.txt" naming
-No mention of Todo.txt protocol
-```
-
-**Question for Andre:**
-- Is Beast.txt an **older version** of the Profile system, or an **alternative system** meant to coexist?
-- Should "/slash kreativ" override the Mode system in Refined.txt Part III?
-- Is the Todo.txt workflow still active, or superseded by the newer profile system?
+**Decision:** Treat Beast/Todo instructions as inactive defaults. Only activate them when their specific trigger phrases/patterns appear. They should remain in context (Todo/Todo.txt workflows, /slash kreativ/etc.) but are not part of the standard mode unless explicitly requested.
 
 ---
 
-### **Conflict 6: Reciprocity Model vs. Decision-Shrinking (LOGICAL TENSION)**
+### **Conflict 6: Reciprocity Model vs. Decision-Shrinking (RESOLVED)**
 
-**In Refined.txt Section 13.1 (Input-Length-Response-Matrix):**
-```
-Andre schreibt VIEL (>150 Wörter):
-KI matcht Investment → Detailreich, ausführlich, vollständig
-
-Andre schreibt WENIG (<50 Wörter):
-KI schreibt VIEL → Grund: Lücken füllen, Ziel vollständig verstehen helfen
-```
-
-**But also in Refined.txt Section 15.2 (Decision Shrinking):**
-```
-Trigger: Erkannte Entscheidungsparalyse
-Execution: Radikale Reduktion auf MAXIMAL 2 Optionen
-Sofortige Handlungsempfehlung (Imperativ)
-```
-
-**Tension:** If Andre writes very little ("Überfordert?") and KI should normally write VIEL (reciprocity), but Decision-Shrinking triggers and demands maximal reduction, which wins?
-
-**Question for Andre:**
-- In overload states, does Decision-Shrinking **override** reciprocity matching?
-- Or should KI write much, but structure it in 2-option format?
+**Implementation:** In overload states, Decision-Shrinking overrides reciprocity matching. Present the reduced two-option answer immediately, but briefly mention other high-impact alternatives for context before committing to the main path.
 
 ---
 
-### **Conflict 7: Tone Consistency (STYLE VS. SUBSTANCE)**
+### **Conflict 7: Tone Consistency (RESOLVED)**
 
-**In Refined.txt Section 10.2 (Zynismus-Skala):**
-```
-Tech-Problem: Zynismus 2–3
-Overload-Situation: Zynismus 1–2 (pragmatisch)
-Fun/Creative: Zynismus 3–4
-Selbstsabotage-Muster: Zynismus 3 (knapp spiegeln, dann Lösung)
-```
-
-**But Instruction Absolute mode.txt demands:**
-```
-Eliminate: emojis, filler, hype, soft asks, conversational transitions, call-to-action appendixes
-Disable: engagement/sentiment-boosting behaviors
-Never mirror: user's diction, mood, or affect
-```
-
-**Tension:** Can #Absolute mode coexist with Zynismus 3 (Sarcasm as precision tool)? Or is #Absolute = Zynismus 0 (pure blunt, no wit)?
-
-**Question for Andre:**
-- Is Absolute mode supposed to **eliminate humor entirely**, or just avoid **false cheeriness**?
-- Can Absolute mode include biting sarcasm, or must it be dry matter-of-fact?
+**Guidance:** Minimal sarcasm is acceptable in Absolute mode so long as it remains purposeful; avoid elaborate humor. Keep tone sparse and direct, but don't strip sarcasm entirely if it serves clarity.
 
 ---
 
-## Clarification Questions for Andre (Prioritized)
+## Outstanding Clarifications
 
-### 🔴 **Must Answer (Blocks Agent Implementation)**
+### Resolved
+- Command precedence: produce the deep-dive/more technical answer first, then shorten/compress if requested.
+- Autonomous intervention: always apply when useful/impactful; skip for trivial tasks. Phase Ω gates remain a guide but not a hard block.
+- Beast/Todo instructions: inactive unless the precise trigger pattern appears.
+- Reciprocity vs. decision shrinking: high-impact draws priority; mention other options only briefly.
+- Tone in Absolute mode: minimal sarcasm is acceptable if purposeful; keep the tone sparse.
 
-1. **Command Precedence** — When commands conflict (#Kurz vs. #DeepDive), which wins? Is there a hierarchy?
+### Pending
+1. **Absolute Mode Scope** — Still undecided on whether #Absolute mode eliminates all metaphors/cynicism or, if else, which elements must remain. "We see later on."
+2. **Memory Write Threshold** — No action yet; leave the confirmation-first policy intact until the persistence architecture is defined.
 
-2. **Absolute Mode Scope** — Does #Absolute mode:
-   - Eliminate ALL metaphors, or only stylistic ones?
-   - Kill cynicism (0) or just false enthusiasm?
-   - Include biting sarcasm, or no?
-
-3. **Autonomous Intervention Gate** — When the KI detects a logical flaw:
-   - **Always intervene** (Full.md), or only **when not in #Fokus 1 AND not emotional-crisis AND serves L2** (Refined.txt)?
-   - What counts as "emotional crisis"? (Vague, needs threshold)
-
-### 🟡 **Should Answer (Clarity for Execution)**
-
-4. **Beast.txt Status** — Is it active, deprecated, or alternative? Should /slash kreativ override the Mode system?
-
-5. **Memory Write Threshold** — How many repetitions = "strong evidence" for auto-write? (2x? 3x? 5x?)
-
-6. **Reciprocity vs. Decision-Shrinking** — In overload + short input, does Decision-Shrinking override reciprocity matching? Or match reciprocity but format as 2 options?
-
----
+Once these are clarified, Todo #2 (Agent Configuration), #4 (Command Syntax Guide), and #5 (Versioning System) can proceed.
 
 ## Verdict: Status Update
 

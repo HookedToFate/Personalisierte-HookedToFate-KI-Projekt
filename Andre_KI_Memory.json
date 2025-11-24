@@ -1,0 +1,22 @@
+{
+  "memory_entries": [],
+  "metadata": {
+    "schema_version": "1.0",
+    "last_updated": "2025-11-24T00:00:00Z",
+    "total_entries": 0,
+    "profile_version": "v3.2",
+    "created": "2025-11-24T00:00:00Z",
+    "description": "Persistent memory storage for Andre's personalized AI system. Tracks patterns, preferences, corrections, and project-specific context across sessions.",
+    "storage_backend": "GitHub Gist",
+    "write_threshold": {
+      "default": 3,
+      "scope": "cross-session",
+      "time_window_days": 30,
+      "confidence_levels": {
+        "2": "Low - Log only",
+        "3": "Medium - Prompt for confirmation",
+        "5+": "High - Auto-store with notification"
+      }
+    }
+  }
+}

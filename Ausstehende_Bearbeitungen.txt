@@ -1,0 +1,128 @@
+═══════════════════════════════════════════════════════════════════════════
+AUSSTEHENDE BEARBEITUNGEN — Offene Fragen & Blockierte Todos
+═══════════════════════════════════════════════════════════════════════════
+
+Zweck dieses Dokuments:
+Dieses File trackt alle offenen Entscheidungen, die noch keine finale Klärung haben,
+sowie blockierte Todos, die von diesen Entscheidungen abhängen. Es dient als zentraler
+"Pending-Tracker" für das Personalisierte-HookedToFate-KI-Projekt.
+
+Jede offene Frage ist einem Roadmap-Schritt zugeordnet (Phase 1/2/3), damit klar ist,
+wann sie geklärt werden muss, um weiterzukommen.
+
+Status: 0 offene Punkte | 2 resolved (Stand: 24. November 2025)
+
+═══════════════════════════════════════════════════════════════════════════
+
+OFFENE PUNKTE
+
+═══════════════════════════════════════════════════════════════════════════
+
+1. ABSOLUTE MODE SCOPE (Ton-Spezifikation) — ✅ RESOLVED (24.11.2025)
+   
+   Entscheidung:
+   - Metaphern: ERLAUBT wenn sie Klarheit erhöhen oder Systeme komprimieren
+     ✓ Beispiel: "Bottleneck = schwächstes Glied" (System-Kompression)
+     ✓ Beispiel: "Server crashed? Klassisch." (Präzisions-Zynismus)
+     ✗ Beispiel: "Das ist wie ein Tanz..." (dekorativ, nicht klärend)
+   
+   - Zynismus-Level: 1 (sparse, purposeful only)
+   - Scharfer Sarkasmus: Minimal, nur wenn Präzision/Klarheit erhöht
+   
+   Rationale (basierend auf Andre's Profil):
+   - "Sarkasmus ist als Präzisionswerkzeug zu lesen: schärft Klarheit"
+   - First-principles-Denken: Metaphern als Kompressionswerkzeug erlaubt
+   - Autonomie-Prinzip: Klarheit > Style-Purismus
+   - Effizienz: Weniger Worte bei gleichem Signal-to-Noise
+   
+   Status: Implementiert in COMMAND_SYNTAX_GUIDE.md (24.11.2025)
+   
+   Roadmap-Zuordnung: Phase 2 (Command Syntax Specification — Todo #4)
+   
+   Blockade aufgehoben:
+   - Command Syntax Implementation Guide vollständig
+   - Todo #4 kann als abgeschlossen markiert werden
+   
+   Impact: Hoch (positiv)
+   - Klare Spezifikation für alle AI Agents
+   - Konsistente #Absolute-Mode Implementierung
+   - Ton-Regeln nun synchronisiert über alle Dokumente
+
+---
+
+2. MEMORY WRITE THRESHOLD (Persistenz-Logik) — ✅ RESOLVED (24.11.2025)
+   
+   Entscheidung:
+   - Schwellenwert: **3x Wiederholungen** (session-übergreifend, 30-Tage-Fenster)
+   - Scope: Cross-session tracking (nicht nur einzelne Conversation)
+   - Kontext-Match: Gleiche Kategorie (z.B. 3x Tone-Korrekturen, nicht 1x Tone + 1x Format + 1x Project)
+   
+   Confidence-Levels:
+   - 2x = Low confidence → nur loggen, kein Prompt
+   - 3x = Medium confidence → Bestätigung erfragen
+   - 5x+ = High confidence → Auto-Store mit Benachrichtigung
+   
+   Override-Logik:
+   - Custom Thresholds per Kategorie: `/threshold Tone=2` oder `/threshold Pattern=5`
+   - Overload-Signale umgehen Threshold: "egal" 2x + Decision-Shrinking → Prompt bei 2x
+   
+   Rationale:
+   - Alignment mit Profil-Logik: "3+ Optionen = Decision Paralysis" (Section 8)
+   - Balance: 2x = Zufall möglich, 3x = Muster erkennbar
+   - Konsistent mit Decision-Shrinking-Protokoll (max 2 Optionen → 3+ triggert Intervention)
+   
+   Status: Implementiert in MEMORY_PERSISTENCE_ARCHITECTURE.md (24.11.2025)
+   
+   Roadmap-Zuordnung: Phase 3.2 (Memory Persistence Architecture)
+   
+   Blockade aufgehoben:
+   - Phase 3.2 dokumentiert und unblocked für Implementation
+   - Phase 1 MVP Timeline kann starten (Dezember 2025)
+   - Profil-Evolution-Mechanismus spezifiziert
+   - Changelog-Integration geklärt (semantische Änderungen = Minor Version Bump)
+   
+   Impact: Hoch (positiv)
+   - MVP kann gebaut werden (GitHub Gist + Confirmation-First-Policy)
+   - Klare Spezifikation für Auto-Detection (Phase 2)
+   - Memory-Layer bereit für produktive Nutzung
+
+═══════════════════════════════════════════════════════════════════════════
+
+ROADMAP-ÜBERSICHT (Kontext)
+
+═══════════════════════════════════════════════════════════════════════════
+
+Phase 1: Establish Authoritativeness (Foundation)
+   - Tag Full.md with version (v3.0-Full)
+   - Create CHANGELOG.md
+   - Clarify: Full.md = human-readable, Refined.txt = production-ready
+   - Deprecate "Instruction Absolute mode.txt" als Standalone → merge in Command Spec
+
+Phase 2: Close Execution Gaps (Operational Clarity)
+   - Command Syntax Specification (Todo #4) ← BLOCKIERT durch Punkt 1
+   - Emotional Layer Detection Protocol (1-pager)
+   - Decision-Shrinking Flowchart
+
+Phase 3: Content Enrichment (Long-term)
+   - Sync Full.md with Refined.txt depth
+   - Project Catalog (separate detailed breakdown)
+   - RECALL Index refresh
+   - Memory Persistence Architecture (Todo #3) ← BLOCKIERT durch Punkt 2
+
+═══════════════════════════════════════════════════════════════════════════
+
+RESOLVED ITEMS (Für Kontext)
+
+═══════════════════════════════════════════════════════════════════════════
+
+✅ Command Precedence: Deep dive/mehr technisch → dann kürzen (Resolved 23.11.2025)
+✅ Autonomous Intervention: Immer wenn useful/impactful, skip bei Trivialaufgaben (23.11.2025)
+✅ Beast.txt Status: Inaktiv, nur bei explizitem Trigger-Pattern aktivieren (23.11.2025)
+✅ Reciprocity vs. Decision-Shrinking: Decision-Shrinking gewinnt bei Overload (23.11.2025)
+✅ Tone Consistency: Minimal Sarkasmus ok, wenn zweckorientiert (23.11.2025)
+✅ Absolute Mode Scope: Cynicism=1, Metaphern erlaubt wenn klärend (24.11.2025)
+✅ Memory Write Threshold: 3x Wiederholungen, session-übergreifend, 30-Tage-Fenster (24.11.2025)
+
+═══════════════════════════════════════════════════════════════════════════
+END OF FILE
+═══════════════════════════════════════════════════════════════════════════
