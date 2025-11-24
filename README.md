@@ -11,39 +11,57 @@ This repository contains a multi-layer profile system designed to enable authent
 - **Autonomous Evolution** with version tracking and intelligent conflict resolution
 - **Command-Based Adaptation** for dynamic tone, depth, and mode switching
 
-**Current Status:** v3.0 — Foundation Phase Complete (Audit & Conflict Resolution)
+**Current Status:** v3.2 — Documentation synced, Command/Emotional/Decision protocols live. Memory Layer MVP Day 1-3 coded (awaiting PAT to test).
 
 ---
 
 ## Repository Structure
 
-### Core Profile Documents
+### Navigation
+- `INDEX.md` — Master map for this repo.
+- `FOLDER_STRUCTURE_CONCEPT.md` — Rationale and target structure.
 
-| File | Purpose | Audience | Update Frequency |
+### Core Profile Documents (`profile/`)
+
+| Path | Purpose | Audience | Update Frequency |
 |------|---------|----------|------------------|
-| **`Andre_Profile_Full.md`** | Comprehensive blueprint — philosophical, human-readable, identity-focused | Humans, new collaborators, high-level understanding | Quarterly + major insights |
-| **`Andre_profil_full_refined.txt`** | Production-ready execution guide — operational, API-ready, with processing logic | AI agents, systems integration, developers | Monthly; faster iteration |
-| **`Instruction Absolute mode.txt`** | Directive mode specification — overrides softening defaults | Tactical use in high-efficiency contexts | Ad-hoc when intensity needed |
-| **`Beast.txt`** | Legacy/Inactive workflow instructions — only triggers on specific patterns | Deprecated; kept for reference | Frozen |
+| `profile/Andre_Profile_Full.md` | Comprehensive blueprint — philosophical, human-readable, identity-focused | Humans, new collaborators, high-level understanding | Quarterly + major insights |
+| `profile/Andre_profil_full_refined.txt` | Production-ready execution guide — operational, API-ready, with processing logic | AI agents, systems integration, developers | Monthly; faster iteration |
+| `profile/Instruction_Absolute_mode.txt` | Directive mode specification — overrides softening defaults | Tactical use in high-efficiency contexts | Ad-hoc when intensity needed |
+| `profile/Beast.txt` | Legacy/Inactive workflow instructions — only triggers on specific patterns | Deprecated; kept for reference | Frozen |
+| `profile/Andre_RECALL_Index.md` | Fast-retrieval index for key concepts/IDs | AI agents, developers | As needed |
 
 **Key Principle:** Full.md and Refined.txt are **semantically synchronized** but serve different abstraction levels. Full.md explains *why*, Refined.txt specifies *how*.
 
 ### Documentation & Tracking
 
-| File | Purpose |
+| Path | Purpose |
 |------|---------|
-| **`CHANGELOG.md`** | Version history, semantic changes, rationale for all profile updates |
-| **`PROFILE_SYNC_AUDIT.md`** | Comprehensive conflict analysis across all profile versions (Nov 2025) |
-| **`Ausstehende_Bearbeitungen.txt`** | Pending decisions and blocked todos tracker |
-| **`PROJEKTPLAN_ROADMAP.md`** | 3-phase development roadmap with milestones and dependencies |
-| **`.github/copilot-instructions.md`** | AI agent onboarding guide — architecture, patterns, red flags |
-| **`Andre_RECALL_Index (1).md`** | Fast-retrieval index for key concepts (to be reorganized) |
+| `CHANGELOG.md` | Version history, semantic changes, rationale for all profile updates |
+| `audits/PROFILE_SYNC_AUDIT.md` | Comprehensive conflict analysis across all profile versions (Nov 2025) |
+| `audits/Ausstehende_Bearbeitungen.txt` | Pending decisions and blocked todos tracker |
+| `PROJEKTPLAN_ROADMAP.md` | 3-phase development roadmap with milestones and dependencies |
+| `.github/copilot-instructions.md` | AI agent onboarding guide — architecture, patterns, red flags |
 
-### Configuration
+### Memory Layer (`memory-layer/`)
+- `MEMORY_PERSISTENCE_ARCHITECTURE.md` — Technical spec (Confirmation-First, 3x threshold).
+- `MEMORY_MVP_IMPLEMENTATION_PLAN.md` — 2-week implementation plan.
+- `MEMORY_DAY1_SETUP.md` — Gist/token setup.
+- `scripts/` — `memory_layer.ps1`, `test_gist_connection.ps1`.
+- `runtime/` — Cache/config (gitignored).
 
-| File | Purpose |
-|------|---------|
-| **`.github/agents/my-agent.agent.md`** | GitHub Agent configuration (stub → to be completed in Phase 2) |
+### Commands (`commands/`)
+- `COMMAND_SYNTAX_GUIDE.md` — Command reference + precedence.
+- `DECISION_SHRINKING_FLOWCHART.md` — Overload protocol.
+- `EMOTIONAL_DETECTION_PROTOCOL.md` — Tone/state detection.
+
+### Projects (`projects/`)
+- `PROJECT_CATALOG.md` — 14 projects with activation commands and dependencies.
+- `creative/`, `system/` — Placeholders for per-project docs.
+
+### Agents
+- `agents/AGENT_QUICKSTART.md` — One-page onboarding for AI agents.
+- `.github/agents/my-agent.agent.md` — GitHub agent config (andre-profile-guardian).
 
 ---
 
@@ -108,17 +126,19 @@ Example: `#DeepDive #Kurz` → Produce full technical analysis, then compress to
 
 ### For AI Agents
 
-1. **Read first:** `.github/copilot-instructions.md` — essential patterns, red flags, decision logic
-2. **Check conflicts:** `PROFILE_SYNC_AUDIT.md` — resolved and pending execution ambiguities
-3. **Understand commands:** `Ausstehende_Bearbeitungen.txt` Point 1 (pending formal spec)
-4. **Reference architecture:** `Andre_profil_full_refined.txt` Part II for operational details
+1. **Read first:** `.github/copilot-instructions.md` — essential patterns, red flags, decision logic.
+2. **Check conflicts:** `audits/PROFILE_SYNC_AUDIT.md` — resolved/pending execution ambiguities.
+3. **Understand commands:** `commands/COMMAND_SYNTAX_GUIDE.md` (+ flowchart + emotional protocol).
+4. **Reference architecture:** `profile/Andre_profil_full_refined.txt` Part II for operational details.
+5. **Memory behavior:** `memory-layer/MEMORY_PERSISTENCE_ARCHITECTURE.md` (Confirmation-First, 3x threshold).
 
 ### For Human Contributors
 
-1. **Understand the person:** `Andre_Profile_Full.md` — identity, values, cognitive model
-2. **Check current status:** `CHANGELOG.md` + `PROJEKTPLAN_ROADMAP.md`
-3. **See open questions:** `Ausstehende_Bearbeitungen.txt`
-4. **Before changes:** Ensure semantic consistency across Full.md and Refined.txt
+1. **Understand the person:** `profile/Andre_Profile_Full.md` — identity, values, cognitive model.
+2. **Check current status:** `CHANGELOG.md` + `PROJEKTPLAN_ROADMAP.md`.
+3. **See open questions:** `audits/Ausstehende_Bearbeitungen.txt`.
+4. **Before changes:** Ensure semantic consistency across Full.md and Refined.txt; log in `CHANGELOG.md`.
+5. **File map:** `INDEX.md` for folder-by-folder pointers.
 
 ---
 

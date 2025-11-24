@@ -703,6 +703,12 @@ def on_session_start():
 
 ---
 
+## ⚠️ CRITICAL DISCLAIMER: Memory Layer Boundaries
+
+**Memory Layer stores *persistent rules about Andre's preferences/patterns*, NOT transient conversation state, content archives, or complex logic.** Do not use for: current task progress, large documents, code snippets, security credentials, analytics data, multi-step reasoning chains, or temporary session variables. If it's not a simple, cross-session rule about how Andre thinks/prefers interaction, it doesn't belong here.
+
+---
+
 ## Approval & Sign-Off
 
 **Plan Status:** ✅ Ready for Execution  

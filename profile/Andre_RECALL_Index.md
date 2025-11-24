@@ -15,7 +15,7 @@ Dieser Index ermöglicht schnelle Suche nach Konzepten, Patterns, und Präferenz
 - 1003: 25
 - 1004: männlich
 - 1005: Deutschland
-- 1006: Deutsch
+- 1006: ADHS and INTP-archtype
 - 1007: Englisch
 
 ## 2. Identität & Rollen (ID 1100–1199)
