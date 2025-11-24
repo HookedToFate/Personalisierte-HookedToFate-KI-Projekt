@@ -11,6 +11,44 @@ Alle signifikanten Änderungen an den Profil-Dokumenten werden hier dokumentiert
 
 ---
 
+## [v3.2.1] — 2025-11-24 (Evening)
+
+### Memory Layer MVP - Day 1 Setup (Implementation Start)
+
+**Typ:** Patch Update (Infrastructure + Tooling)
+
+**Betroffene Dateien:**
+- `Andre_KI_Memory.json` (neu erstellt)
+- `test_gist_connection.ps1` (neu erstellt)
+- `memory_layer.ps1` (neu erstellt)
+- `MEMORY_MVP_IMPLEMENTATION_PLAN.md` (neu erstellt)
+- `MEMORY_DAY1_SETUP.md` (neu erstellt)
+
+**Änderungen:**
+- **Memory Schema Initialized:** `Andre_KI_Memory.json` erstellt mit leerem Schema, Metadata (v3.2, 3x threshold documented)
+- **GitHub Gist Created:** https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f (private, ready for sync)
+- **Connection Test Script:** `test_gist_connection.ps1` mit GET/POST verification, auto-config generation
+- **Core Implementation:** `memory_layer.ps1` (Day 2-3 complete)
+  - Read-Memory function (Gist API + local cache, 10-min sync)
+  - Write-Memory function (conflict detection, A/B/C resolution)
+  - Commands: `/store`, `/recall`, `/memory status`
+  - Session startup (auto-loads high-confidence rules)
+  - Conflict detection (keyword-based MVP logic)
+- **Implementation Plans:** 
+  - MEMORY_MVP_IMPLEMENTATION_PLAN.md (2-week roadmap with ASCII flowchart)
+  - MEMORY_DAY1_SETUP.md (step-by-step Gist + token setup guide)
+
+**Status:**
+- ✅ Day 1 Tasks Complete: Gist created, scripts ready
+- ⏳ Pending: GitHub token generation (user action required)
+- ⏳ Next: Connection test, Day 2-3 testing (read/write verification)
+
+**Impact:** Niedrig (kurzfristig) — Infrastructure vorbereitet, funktionale Tests ausstehend
+- Memory Layer MVP bereit für Token-Setup + Testing
+- Phase 1 MVP on track (2-week timeline: Dezember 2025)
+
+---
+
 ## [v3.2] — 2025-11-24
 
 ### Content Enrichment & Memory Persistence (Phase 3 Complete)

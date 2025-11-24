@@ -1,0 +1,15 @@
+﻿{
+    "sync_interval_minutes":  10,
+    "gist_id":  "ab40da613139773c86c35bd713de5c4f",
+    "local_cache_path":  "./memory_cache.json",
+    "implementation_date":  "2025-11-24",
+    "test_status":  "PASSED",
+    "backup_path":  "./backups/",
+    "api_endpoint":  "https://api.github.com/gists/ab40da613139773c86c35bd713de5c4f",
+    "backup_enabled":  true,
+    "raw_url":  "https://gist.githubusercontent.com/HookedToFate/ab40da613139773c86c35bd713de5c4f/raw/ee0c699cb48ee78a5853718b648acb2e938e018b/Andre_KI_Memory.json",
+    "phase":  "MVP",
+    "token_location":  "C:\\Users\\andre\\.gist_token",
+    "last_test":  "2025-11-24 07:19:37",
+    "gist_url":  "https://gist.github.com/ab40da613139773c86c35bd713de5c4f"
+}
