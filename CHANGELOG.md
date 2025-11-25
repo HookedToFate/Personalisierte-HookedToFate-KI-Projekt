@@ -11,6 +11,31 @@ Alle signifikanten Änderungen an den Profil-Dokumenten werden hier dokumentiert
 
 ---
 
+## [v3.2.3] — 2025-11-25 (Early Morning)
+
+### Memory MVP — Live Gist Test & CLI Improvements
+
+**Typ:** Patch Update (Testing + DX)
+
+**Betroffene Dateien:**
+- `memory-layer/scripts/memory_layer.ps1`
+- `memory-layer/MEMORY_MVP_IMPLEMENTATION_PLAN.md`
+- `profile/_INDEX.md`, `profile/Andre_person/*`, `profile/Systemconfig_Custom_KI/*`
+- (Gist) `Andre_KI_Memory.json` content
+
+**Änderungen:**
+- Live-Test gegen Gist bestanden: `/status`, `/store`, `/recall` funktionieren; Memory writes bestätigt.
+- CLI erweitert: `-CmdArgs`, `-Category`, `-Subcategory`, `-Confidence`, `-ConflictChoice` für non-interaktive Nutzung; Conflict-Prompt kann automatisiert beantwortet werden.
+- ID-Generation fix: nutzt max(existing)+1, verhindert doppelte IDs.
+- Cleanup: MEM-TEST Einträge aus Gist entfernt; Emoji-Testregeln hinzugefügt (Konflikt-Check).
+- Plan aktualisiert mit Testergebnissen (25.11.2025).
+- Known edge-case: Archive-Branch bei Konflikt findet Old-Entry nicht immer → Warning statt Abbruch; weiterer Feinschliff offen.
+- Profile-Struktur verfeinert: `profile/Andre_person/` (Full, Refined, RECALL) und `profile/Systemconfig_Custom_KI/` (Systemprompt-Gliederung, Absolute, Beast); Indexe/README/INDEX aktualisiert.
+
+**Impact:** Memory MVP verifiziert mit Live-Gist, CLI besser skriptbar, Daten konsolidiert. Bekannte Baustelle: konfliktbasierte Archivierung verbessern.
+
+---
+
 ## [v3.2.2] — 2025-11-25
 
 ### Folder Restructure Complete
@@ -66,7 +91,7 @@ Alle signifikanten Änderungen an den Profil-Dokumenten werden hier dokumentiert
 
 **Änderungen:**
 - **Memory Schema Initialized:** `Andre_KI_Memory.json` erstellt mit leerem Schema, Metadata (v3.2, 3x threshold documented)
-- **GitHub Gist Created:** https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f (private, ready for sync)
+- **GitHub Gist Created:** https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f (SSH: git@gist.github.com:ab40da613139773c86c35bd713de5c4f.git, private, ready for sync)
 - **Connection Test Script:** `test_gist_connection.ps1` mit GET/POST verification, auto-config generation
 - **Core Implementation:** `memory_layer.ps1` (Day 2-3 complete)
   - Read-Memory function (Gist API + local cache, 10-min sync)
@@ -272,6 +297,7 @@ Alle signifikanten Änderungen an den Profil-Dokumenten werden hier dokumentiert
 
 | Version | Datum       | Typ   | Highlights |
 |---------|-------------|-------|------------|
+| v3.2.3  | 2025-11-25  | Patch | Memory MVP live-tested vs Gist, CLI flags for non-interactive use, ID generation fix, test data cleanup |
 | v3.2.2  | 2025-11-24  | Patch | Folder restructure, navigation indices, runtime gitignore, README path update |
 | v3.1    | 2025-11-24  | Minor | Phase 2 Complete: Command Guide, Emotional Protocol, Decision Flowchart, Agent Config, RECALL Index Expansion |
 | v3.0    | 2025-11-23  | Major | Profile Sync Audit, 5 Conflicts Resolved, Roadmap Created |

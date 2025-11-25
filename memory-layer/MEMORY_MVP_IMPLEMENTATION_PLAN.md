@@ -270,6 +270,7 @@ LEGEND:
 - ✅ `/recall` functional (searches memory)
 - ✅ `/memory status` displays summary
 - ✅ User documentation (command usage examples)
+- ✅ Tested against live Gist (25.11.2025): `/status`, `/store`, `/recall` executed; conflict prompt fired, Choice C works; Choice B now warns if existing entry not found to archive (edge case to refine). IDs now generated via max(existing)+1 (avoids duplicates). Test entries cleaned (MEM-TEST* removed).
 
 **Effort:** 6 hours (2 days × 3 hours)
 

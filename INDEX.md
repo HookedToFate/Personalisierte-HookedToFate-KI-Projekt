@@ -23,7 +23,10 @@
 ## Subsystem Breakdown
 
 ### 1) Profile System (`/profile`)
-Human-readable vs. execution-ready profile. Source-of-truth split: `Andre_Profile_Full.md` (philosophy) and `Andre_profil_full_refined.txt` (operational). RECALL IDs live here. Historical PDFs/diagrams in `profile/archive/`.
+Human-readable vs. execution-ready profile. Split:
+- `profile/Andre_person/` — identity/values (Full, Refined, RECALL).
+- `profile/Systemconfig_Custom_KI/` — system prompt + modes (`SYSTEMPROMPT_GLIEDERUNG.md`, Absolute, Beast).
+Historical PDFs/diagrams in `profile/archive/`.
 
 ### 2) Memory Layer (`/memory-layer`)
 Persistence architecture + MVP plan + Day1 setup. Scripts in `memory-layer/scripts/` (`memory_layer.ps1`, `test_gist_connection.ps1`). Runtime/cache isolated in `memory-layer/runtime/` (gitignored). Requires GitHub gist token.
@@ -52,4 +55,3 @@ Parking for deprecated/non-active materials outside the profile archive. Current
 - Memory writes follow Confirmation-First policy with 3x threshold (see `memory-layer/MEMORY_PERSISTENCE_ARCHITECTURE.md`).
 - Execution artifacts stay in `memory-layer/runtime/` (ignored).
 - If you add a new folder, add an `_INDEX.md` describing its contents.
-

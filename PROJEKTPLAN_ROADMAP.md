@@ -195,7 +195,7 @@
 **Week 1: Foundation Setup (Days 1-5)**
 
 ✅ **Day 1: Storage Backend Setup** (DONE — 24.11.2025 Evening)
-- GitHub Gist created: https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f ✅
+– GitHub Gist created: https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f (SSH: git@gist.github.com:ab40da613139773c86c35bd713de5c4f.git) ✅
 - `Andre_KI_Memory.json` initialized with empty schema ✅
 - Connection test script created: `test_gist_connection.ps1` ✅
 - Setup guide created: `MEMORY_DAY1_SETUP.md` ✅
@@ -375,7 +375,7 @@ Phase 3.5 (Quick Start) ✅ ─────────┘    (24.11.2025)
 
 - **Repo:** github.com/HookedToFate/Personalisierte-HookedToFate-KI-Projekt
 - **Branch:** main
-- **Key Files:** `profile/Andre_Profile_Full.md`, `profile/Andre_profil_full_refined.txt`, `profile/Andre_RECALL_Index.md`, `audits/PROFILE_SYNC_AUDIT.md`, `audits/Ausstehende_Bearbeitungen.txt`, `commands/COMMAND_SYNTAX_GUIDE.md`, `memory-layer/MEMORY_PERSISTENCE_ARCHITECTURE.md`
+- **Key Files:** `profile/Andre_person/Andre_Profile_Full.md`, `profile/Andre_person/Andre_profil_full_refined.txt`, `profile/Andre_person/Andre_RECALL_Index.md`, `profile/Systemconfig_Custom_KI/SYSTEMPROMPT_GLIEDERUNG.md`, `audits/PROFILE_SYNC_AUDIT.md`, `audits/Ausstehende_Bearbeitungen.txt`, `commands/COMMAND_SYNTAX_GUIDE.md`, `memory-layer/MEMORY_PERSISTENCE_ARCHITECTURE.md`
 - **Scripts:** `memory-layer/scripts/memory_layer.ps1`, `memory-layer/scripts/test_gist_connection.ps1`
 - **Tools:** GitHub Copilot, VS Code, Mermaid (für Flowcharts), Markdown
 - **Team:** Andre + AI Agents (GitHub Copilot, Custom Agent in `.github/agents/`)
@@ -390,7 +390,7 @@ Phase 3.5 (Quick Start) ✅ ─────────┘    (24.11.2025)
 **24. November 2025 (Evening):**
 - **MEMORY LAYER MVP - DAY 1-3 COMPLETE** ⚙️
 - Infrastructure setup:
-  - GitHub Gist created: https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f
+- GitHub Gist created: https://gist.github.com/HookedToFate/ab40da613139773c86c35bd713de5c4f (SSH: git@gist.github.com:ab40da613139773c86c35bd713de5c4f.git)
   - `Andre_KI_Memory.json` initialized (empty schema, metadata v3.2)
   - Connection test script: `test_gist_connection.ps1` (GET/POST verification)
   - Core implementation: `memory_layer.ps1` (read/write/commands/conflict detection)

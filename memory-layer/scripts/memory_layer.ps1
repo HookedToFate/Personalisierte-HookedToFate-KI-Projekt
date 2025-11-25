@@ -3,7 +3,11 @@
 
 param(
     [string]$Command = "",
-    [string[]]$Args = @()
+    [string[]]$CmdArgs = @(),
+    [string]$Category = "",
+    [string]$Subcategory = "",
+    [string]$Confidence = "Manual",
+    [string]$ConflictChoice = ""
 )
 
 # Load configuration
@@ -111,6 +115,8 @@ function Write-Memory {
         [ValidateSet("Low", "Medium", "High", "Manual")]
         [string]$Confidence = "Manual",
         
+        [string]$ConflictChoice = "",
+        
         [string]$RecallId = $null,
         
         [switch]$Force
@@ -138,7 +144,10 @@ function Write-Memory {
                 Write-Host "  C - Context-dependent (both active)" -ForegroundColor White
                 Write-Host "  X - Cancel" -ForegroundColor White
                 
-                $choice = Read-Host "`nChoice [A/B/C/X]"
+                $choice = $ConflictChoice
+                if (-not $choice) {
+                    $choice = Read-Host "`nChoice [A/B/C/X]"
+                }
                 
                 switch ($choice.ToUpper()) {
                     "A" { 
@@ -148,9 +157,13 @@ function Write-Memory {
                     "B" {
                         # Archive old entry
                         $oldEntry = $memory.memory_entries | Where-Object { $_.id -eq $conflicts[0].existing_id }
-                        $oldEntry.status = "Archived"
-                        $oldEntry.archived_date = (Get-Date).ToString("yyyy-MM-ddTHH:mm:ssK")
-                        Write-Host "✅ Old rule archived. Writing new rule..." -ForegroundColor Yellow
+                        if ($oldEntry) {
+                            $oldEntry.status = "Archived"
+                            $oldEntry.archived_date = (Get-Date).ToString("yyyy-MM-ddTHH:mm:ssK")
+                            Write-Host "✅ Old rule archived. Writing new rule..." -ForegroundColor Yellow
+                        } else {
+                            Write-Host "⚠️ Could not find existing entry to archive; proceeding to write new rule." -ForegroundColor Yellow
+                        }
                     }
                     "C" {
                         Write-Host "✅ Both rules active (context-dependent). Writing new rule..." -ForegroundColor Yellow
@@ -164,7 +177,13 @@ function Write-Memory {
         }
         
         # Generate new entry
-        $entryId = "MEM-$(Get-Date -Format 'yyyy-MM')-$("{0:D3}" -f ($memory.memory_entries.Count + 1))"
+        $existingNumbers = @()
+        foreach ($e in $memory.memory_entries) {
+            $m = [regex]::Match($e.id, 'MEM-\d{4}-(\d{3})$')
+            if ($m.Success) { $existingNumbers += [int]$m.Groups[1].Value }
+        }
+        $nextIndex = $(if ($existingNumbers.Count -gt 0) { ($existingNumbers | Measure-Object -Maximum).Maximum + 1 } else { 1 })
+        $entryId = "MEM-$(Get-Date -Format 'yyyy-MM')-$("{0:D3}" -f $nextIndex)"
         
         $newEntry = @{
             id = $entryId
@@ -287,7 +306,13 @@ function Test-Contradiction {
 # ========================================
 
 function Invoke-StoreCommand {
-    param([string]$Pattern)
+    param(
+        [string]$Pattern,
+        [string]$CategoryOverride = "",
+        [string]$SubcategoryOverride = "",
+        [string]$ConfidenceOverride = "Manual",
+        [string]$ConflictChoiceOverride = ""
+    )
     
     if (-not $Pattern) {
         Write-Host "Usage: /store <pattern>" -ForegroundColor Yellow
@@ -295,21 +320,33 @@ function Invoke-StoreCommand {
         return
     }
     
-    Write-Host "`nCategory:" -ForegroundColor Yellow
-    Write-Host "  1 - Preference" -ForegroundColor White
-    Write-Host "  2 - Pattern" -ForegroundColor White
-    Write-Host "  3 - Project" -ForegroundColor White
-    Write-Host "  4 - Constraint" -ForegroundColor White
-    Write-Host "  5 - Anti-Pattern" -ForegroundColor White
-    Write-Host "  6 - Conflict-Resolution" -ForegroundColor White
-    
-    $catChoice = Read-Host "Select [1-6]"
     $categories = @("", "Preference", "Pattern", "Project", "Constraint", "Anti-Pattern", "Conflict-Resolution")
-    $category = $categories[[int]$catChoice]
+    $category = $CategoryOverride
+    $subcategory = $SubcategoryOverride
+    $confidence = $ConfidenceOverride
+
+    if (-not $category) {
+        Write-Host "`nCategory:" -ForegroundColor Yellow
+        Write-Host "  1 - Preference" -ForegroundColor White
+        Write-Host "  2 - Pattern" -ForegroundColor White
+        Write-Host "  3 - Project" -ForegroundColor White
+        Write-Host "  4 - Constraint" -ForegroundColor White
+        Write-Host "  5 - Anti-Pattern" -ForegroundColor White
+        Write-Host "  6 - Conflict-Resolution" -ForegroundColor White
+        
+        $catChoice = Read-Host "Select [1-6]"
+        $category = $categories[[int]$catChoice]
+    }
+
+    if (-not $subcategory) {
+        $subcategory = Read-Host "Subcategory (e.g., Tone, Decision-Making)"
+    }
+
+    if (-not $confidence) {
+        $confidence = "Manual"
+    }
     
-    $subcategory = Read-Host "Subcategory (e.g., Tone, Decision-Making)"
-    
-    Write-Memory -Pattern $Pattern -Category $category -Subcategory $subcategory -Confidence "Manual"
+    Write-Memory -Pattern $Pattern -Category $category -Subcategory $subcategory -Confidence $confidence -ConflictChoice $ConflictChoiceOverride
 }
 
 function Invoke-RecallCommand {
@@ -450,8 +487,8 @@ if ($Command -eq "") {
 } else {
     # Direct command mode
     switch ($Command) {
-        "/store" { Invoke-StoreCommand -Pattern ($Args -join " ") }
-        "/recall" { Invoke-RecallCommand -Topic ($Args -join " ") }
+        "/store" { Invoke-StoreCommand -Pattern ($CmdArgs -join " ") -CategoryOverride $Category -SubcategoryOverride $Subcategory -ConfidenceOverride $Confidence -ConflictChoiceOverride $ConflictChoice }
+        "/recall" { Invoke-RecallCommand -Topic ($CmdArgs -join " ") }
         "/status" { Invoke-MemoryStatus }
         "init" { Initialize-Session }
         default { 

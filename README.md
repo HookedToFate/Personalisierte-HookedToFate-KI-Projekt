@@ -25,11 +25,12 @@ This repository contains a multi-layer profile system designed to enable authent
 
 | Path | Purpose | Audience | Update Frequency |
 |------|---------|----------|------------------|
-| `profile/Andre_Profile_Full.md` | Comprehensive blueprint — philosophical, human-readable, identity-focused | Humans, new collaborators, high-level understanding | Quarterly + major insights |
-| `profile/Andre_profil_full_refined.txt` | Production-ready execution guide — operational, API-ready, with processing logic | AI agents, systems integration, developers | Monthly; faster iteration |
-| `profile/Instruction_Absolute_mode.txt` | Directive mode specification — overrides softening defaults | Tactical use in high-efficiency contexts | Ad-hoc when intensity needed |
-| `profile/Beast.txt` | Legacy/Inactive workflow instructions — only triggers on specific patterns | Deprecated; kept for reference | Frozen |
-| `profile/Andre_RECALL_Index.md` | Fast-retrieval index for key concepts/IDs | AI agents, developers | As needed |
+| `profile/Andre_person/Andre_Profile_Full.md` | Comprehensive blueprint — philosophical, human-readable, identity-focused | Humans, new collaborators, high-level understanding | Quarterly + major insights |
+| `profile/Andre_person/Andre_profil_full_refined.txt` | Production-ready execution guide — operational, API-ready, with processing logic | AI agents, systems integration, developers | Monthly; faster iteration |
+| `profile/Systemconfig_Custom_KI/Instruction_Absolute_mode.txt` | Directive mode specification — overrides softening defaults | Tactical use in high-efficiency contexts | Ad-hoc when intensity needed |
+| `profile/Systemconfig_Custom_KI/Beast.txt` | Legacy/Inactive workflow instructions — only triggers on specific patterns | Deprecated; kept for reference | Frozen |
+| `profile/Andre_person/Andre_RECALL_Index.md` | Fast-retrieval index for key concepts/IDs | AI agents, developers | As needed |
+| `profile/Systemconfig_Custom_KI/SYSTEMPROMPT_GLIEDERUNG.md` | One-pager Agent-Policies (Rolle, Prinzipien, Entscheidungslogik, Fokus-Level, Overload, Security, Memory, Modes, Output) | AI agents, developers | As needed |
 
 **Key Principle:** Full.md and Refined.txt are **semantically synchronized** but serve different abstraction levels. Full.md explains *why*, Refined.txt specifies *how*.
 
