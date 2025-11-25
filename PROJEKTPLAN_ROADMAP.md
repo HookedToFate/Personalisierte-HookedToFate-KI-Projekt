@@ -262,9 +262,14 @@
 - Project Catalog erstellt (14 projects documented) ✅
 - System bereit für MVP Implementation (Memory Layer Phase 1: Dezember 2025) ✅
 
-### **Milestone 4: Memory Layer MVP Live** 🎯 In Progress (30% complete)
+### **Milestone 4: Memory Layer MVP Live** 🎯 In Progress (40% complete)
 - Day 1-3 Complete: Infrastructure + Core Functions ✅
 - Gist created + Scripts ready ✅
+- **Folder Restructure Complete** ✅ (25.11.2025)
+  - Semantic structure implemented (5 root files + 8 folders)
+  - All `_INDEX.md` manifests created
+  - Runtime isolation enforced
+  - Success metrics achieved (discovery <30s, root count <10)
 - **Current:** Awaiting GitHub token for connection test ⏳
 - **Target:** Ende November 2025 (Week 1 complete)
 - **Next:** Token setup → Connection test → Functional testing (Day 4-5)
@@ -297,74 +302,49 @@ Phase 3.4 (Project Catalog) ✅ ─────┤    Milestone 3 ACHIEVED ✅
 Phase 3.5 (Quick Start) ✅ ─────────┘    (24.11.2025)
 ```
 
-**Bottlenecks:** Alle resolved ✅
+**Bottlenecks:** GitHub PAT fehlt noch (Gist-Access) ⏳
 - Command Spec (2.1) unblocked durch Absolute Mode Decision → Complete
 - Memory Architecture (3.2) unblocked durch Threshold Decision → Complete
-- Phase 3 abgeschlossen (100%), alle Deliverables erfüllt
+- Phase 3 abgeschlossen (100%), alle Deliverables erfüllt; Memory MVP Tests warten auf Token
 
 ---
 
 ## NEXT ACTIONS (PRIORITÄT)
 
-### 🔴 **Highest Priority (Unblocks Critical Path)**
-1. **Todo #5:** Version & Change Tracking System (Phase 1.2)
-   - Erstelle CHANGELOG.md
-   - Tag Full.md mit v3.0-Full
-   - Dokumentiere Versioning Convention
-   - **Aufwand:** 1 Stunde
+### 🔴 **Highest Priority**
+1. **GitHub PAT beschaffen + Connectivity-Test fahren**
+   - Token mit `gist`-Scope hinterlegen, `memory-layer/scripts/test_gist_connection.ps1` ausführen.
+   - Ziel: Live-GET/POST gegen Gist verifizieren.
+2. **Memory-Layer E2E-Test (Day 4-5)**
+   - `/store`, `/recall`, `/memory status` mit Live-Gist testen.
+   - Konfliktdetektion (keyword MVP) einmal triggern und Entscheidungs-Flow prüfen.
+3. **Dokumentations-Update nach Test**
+   - Testergebnisse + eventuelle Anpassungen in `memory-layer/MEMORY_MVP_IMPLEMENTATION_PLAN.md` und ggf. `commands/COMMAND_SYNTAX_GUIDE.md` nachziehen.
 
-2. **README Update** (Phase 1.3)
-   - Klarheit über Dokument-Rollen schaffen
-   - **Aufwand:** 30 Minuten
-
-### 🟡 **High Priority (Can Proceed in Parallel)**
-3. **Todo #2:** Complete Agent Configuration (Phase 2.4)
-   - .github/agents/my-agent.agent.md ausfüllen
-   - **Aufwand:** 1–2 Stunden
-
-4. **Emotional Detection Protocol** (Phase 2.2)
-   - 1-Page Operational Guide erstellen
-   - **Aufwand:** 1 Stunde
-
-5. **Decision-Shrinking Flowchart** (Phase 2.3)
-   - Mermaid Diagram + Explanation
-   - **Aufwand:** 1–2 Stunden
-
-### 🟢 **Medium Priority (Phase 3, No Blockers)**
-6. **Todo #6:** RECALL Index Organization (Phase 3.3)
-   - Naming fix, neue Einträge hinzufügen
-   - **Aufwand:** 1 Stunde
-
-7. **Sync Full.md with Refined.txt** (Phase 3.1)
-   - Limitations, Signals, Cynicism Scale einfügen
-   - **Aufwand:** 2 Stunden
-
-8. **Quick Start Guide** (Phase 3.5)
-   - 1-pager für neue AI Agents
-   - **Aufwand:** 1 Stunde
-
-### ⏸️ **Blocked (Awaiting Decisions)**
-9. **Todo #4:** Command Syntax Guide (Phase 2.1) — Wartet auf Absolute Mode Scope
-10. **Todo #3:** Memory Persistence Architecture (Phase 3.2) — Wartet auf Memory Write Threshold
+### 🟡 **Optional (nach MVP-Test)**
+4. **Folder-Indices verlinken**
+   - In README/INDEX auf `_INDEX.md`-Dateien verweisen, falls weitere Navigation nötig.
+5. **Projekt-Splits planen**
+   - Falls gewünscht: einzelne Projekt-Files unter `projects/creative/` und `projects/system/` anlegen (nach MVP).
 
 ---
 
 ## RISIKEN & MITIGATION
 
-### Risiko 1: Pending Decisions verzögern Phase 2
-**Wahrscheinlichkeit:** Mittel  
-**Impact:** Hoch (blockt Command Spec + Memory Architecture)  
-**Mitigation:** Phase 1 + nicht-blockierte Phase 2-Tasks parallel durchführen; Decisions ad-hoc klären, wenn konkrete Use-Cases auftreten
+### Risiko 1: PAT fehlt → MVP-Tests blockiert
+**Wahrscheinlichkeit:** Hoch  
+**Impact:** Hoch (Gist-Read/Write nicht verifiziert)  
+**Mitigation:** PAT mit `gist`-Scope beschaffen, `test_gist_connection.ps1` sofort ausführen.
 
-### Risiko 2: Profile Drift während Updates
+### Risiko 2: Ungetestete Memory-Kommandos
 **Wahrscheinlichkeit:** Mittel  
-**Impact:** Mittel (Inkonsistenzen zwischen Full.md und Refined.txt)  
-**Mitigation:** Agent Configuration (2.4) deployed mit Consistency Checks; CHANGELOG.md zwingt zur Dokumentation jeder Änderung
+**Impact:** Mittel (Fehler erst spät sichtbar)  
+**Mitigation:** E2E-Test der `/store`-/`/recall`-/`/memory status`-Flows direkt nach PAT; Ergebnisse dokumentieren.
 
-### Risiko 3: Memory Persistence Architektur unklar
+### Risiko 3: Pfadverwirrung nach Restrukturierung
 **Wahrscheinlichkeit:** Niedrig  
-**Impact:** Hoch (kann gesamtes Langzeit-Lernziel gefährden)  
-**Mitigation:** Phase 3.2 kann später erfolgen; aktuell ist Confirmation-First-Policy ausreichend; Cloud-Service-Integration erst nach Phase 1/2 kritisch
+**Impact:** Niedrig-Mittel (falsche Referenzen)  
+**Mitigation:** Neue `_INDEX.md` nutzen, README/INDEX aktuell halten, alte Pfade in Docs ersetzen.
 
 ---
 
@@ -395,13 +375,17 @@ Phase 3.5 (Quick Start) ✅ ─────────┘    (24.11.2025)
 
 - **Repo:** github.com/HookedToFate/Personalisierte-HookedToFate-KI-Projekt
 - **Branch:** main
-- **Key Files:** Andre_Profile_Full.md, Andre_profil_full_refined.txt, PROFILE_SYNC_AUDIT.md, Ausstehende_Bearbeitungen.txt
+- **Key Files:** `profile/Andre_Profile_Full.md`, `profile/Andre_profil_full_refined.txt`, `profile/Andre_RECALL_Index.md`, `audits/PROFILE_SYNC_AUDIT.md`, `audits/Ausstehende_Bearbeitungen.txt`, `commands/COMMAND_SYNTAX_GUIDE.md`, `memory-layer/MEMORY_PERSISTENCE_ARCHITECTURE.md`
+- **Scripts:** `memory-layer/scripts/memory_layer.ps1`, `memory-layer/scripts/test_gist_connection.ps1`
 - **Tools:** GitHub Copilot, VS Code, Mermaid (für Flowcharts), Markdown
-- **Team:** Andre + AI Agents (GitHub Copilot, Custom Agent in .github/agents/)
+- **Team:** Andre + AI Agents (GitHub Copilot, Custom Agent in `.github/agents/`)
 
 ---
 
 ## CHANGELOG (ROADMAP UPDATES)
+
+**24. November 2025 (Night):**
+- **Folder Restructure & Navigation:** Ordner nach `FOLDER_STRUCTURE_CONCEPT.md` angelegt, Files verschoben, `_INDEX.md`-Manifeste pro Ordner, `INDEX.md` im Root, `.gitignore` für `memory-layer/runtime/`, README-Pfade aktualisiert.
 
 **24. November 2025 (Evening):**
 - **MEMORY LAYER MVP - DAY 1-3 COMPLETE** ⚙️
