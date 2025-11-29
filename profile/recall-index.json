@@ -1,0 +1,335 @@
+{
+  "version": "1.0",
+  "description": "Structured recall index for quick fact lookups. JSON version of Andre_RECALL_Index.md",
+  "totalEntries": 267,
+
+  "basisdaten": {
+    "idRange": "1000-1099",
+    "entries": {
+      "1000": { "key": "name", "value": "Andre" },
+      "1001": { "key": "alias1", "value": "Mr_Fate" },
+      "1002": { "key": "alias2", "value": "HookedToFate" },
+      "1003": { "key": "age", "value": 25 },
+      "1004": { "key": "gender", "value": "männlich" },
+      "1005": { "key": "location", "value": "Deutschland" },
+      "1006": { "key": "language_primary", "value": "Deutsch" },
+      "1007": { "key": "language_secondary", "value": "Englisch" }
+    }
+  },
+
+  "identitaet_rollen": {
+    "idRange": "1100-1199",
+    "entries": {
+      "1100": { "key": "rolle", "value": "Selbstsabotage-Analyst" },
+      "1101": { "key": "rolle", "value": "Menschenlesen-Analyst" },
+      "1102": { "key": "rolle", "value": "Red-Team-Connaisseur" },
+      "1103": { "key": "rolle", "value": "Deep-Talk-Liebhaber" },
+      "1104": { "key": "rolle", "value": "System-Denker" },
+      "1105": { "key": "rolle", "value": "KI-Bauer" },
+      "1106": { "key": "rolle", "value": "Meta-Denker" },
+      "1107": { "key": "rolle", "value": "Anti-Coach" }
+    }
+  },
+
+  "kognitive_architektur": {
+    "idRange": "1200-1299",
+    "entries": {
+      "1200": { "key": "denkstil", "value": "analytisch, logisch, Zweck vor Vorgehen" },
+      "1201": { "key": "methode", "value": "First-Principles" },
+      "1202": { "key": "faehigkeit", "value": "denkt in Zusammenhängen, erkennt Muster" },
+      "1203": { "key": "eigenschaft", "value": "Forschergeist" },
+      "1204": { "key": "kern", "value": "Analytisch" },
+      "1205": { "key": "emotional", "value": "nutzt Gefühl als Zusatz, bleibt rational" },
+      "1206": { "key": "fokus", "value": "Tiefenfokus" },
+      "1207": { "key": "bedarf", "value": "Strukturbedarf" },
+      "1208": { "key": "tendenz", "value": "Overthink-Tendenz" }
+    }
+  },
+
+  "werte_prioritaeten": {
+    "idRange": "1300-1399",
+    "entries": {
+      "1300": { "key": "wert", "value": "Selbstbestimmung", "priority": 1 },
+      "1301": { "key": "wert", "value": "Autonomie", "priority": 1 },
+      "1302": { "key": "wert", "value": "vermeidet Schaden, hilft aktiv", "priority": 2 },
+      "1303": { "key": "wert", "value": "Rücksicht", "priority": 2 },
+      "1304": { "key": "wert", "value": "Genussfreude", "priority": 3 },
+      "1305": { "key": "wert", "value": "Sinn" },
+      "1306": { "key": "wert", "value": "Fun/XP" },
+      "1307": { "key": "wert", "value": "Ehrlichkeit" },
+      "1308": { "key": "wert", "value": "Klarheit" },
+      "1309": { "key": "anti_wert", "value": "Anti-Manipulation" }
+    }
+  },
+
+  "interessen_themen": {
+    "idRange": "1400-1499",
+    "entries": {
+      "1400": { "key": "interesse", "value": "Psychologie", "category": "domain" },
+      "1401": { "key": "interesse", "value": "Kognitive Muster", "category": "psychologie" },
+      "1402": { "key": "interesse", "value": "Dynamiken", "category": "psychologie" },
+      "1403": { "key": "interesse", "value": "Machtstrukturen", "category": "psychologie" },
+      "1404": { "key": "interesse", "value": "Abhängigkeiten", "category": "psychologie" },
+      "1405": { "key": "interesse", "value": "Technik", "category": "domain" },
+      "1406": { "key": "interesse", "value": "IT-Systeme", "category": "technik" },
+      "1407": { "key": "interesse", "value": "Setups", "category": "technik" },
+      "1408": { "key": "interesse", "value": "Troubleshooting", "category": "technik" },
+      "1409": { "key": "interesse", "value": "Rhetorik", "category": "domain" },
+      "1410": { "key": "interesse", "value": "Argumentation", "category": "rhetorik" },
+      "1411": { "key": "interesse", "value": "Manipulation", "category": "rhetorik" },
+      "1412": { "key": "interesse", "value": "KI", "category": "domain" },
+      "1413": { "key": "interesse", "value": "Prompting", "category": "ki" },
+      "1414": { "key": "interesse", "value": "Metakognition", "category": "ki" },
+      "1415": { "key": "interesse", "value": "Gaming", "category": "domain" },
+      "1416": { "key": "interesse", "value": "LoL", "category": "gaming" },
+      "1417": { "key": "interesse", "value": "Twitch", "category": "gaming" },
+      "1418": { "key": "interesse", "value": "YouTube", "category": "gaming" },
+      "1419": { "key": "interesse", "value": "Physik", "category": "domain" },
+      "1420": { "key": "interesse", "value": "Philosophie", "category": "domain" },
+      "1421": { "key": "interesse", "value": "Warum-Fragen", "category": "philosophie" },
+      "1422": { "key": "interesse", "value": "Rätsel", "category": "hobbies" },
+      "1423": { "key": "interesse", "value": "Reime", "category": "hobbies" },
+      "1424": { "key": "interesse", "value": "Muster", "category": "cognitive" }
+    }
+  },
+
+  "beziehungs_interaktionsdynamik": {
+    "idRange": "1500-1599",
+    "entries": {
+      "1500": { "key": "muster", "value": "Schnellvertrauen" },
+      "1501": { "key": "muster", "value": "Reziprozität" },
+      "1502": { "key": "muster", "value": "Invest-Erwartung" },
+      "1503": { "key": "muster", "value": "Überinvestition in Austausch" },
+      "1504": { "key": "bedarf", "value": "Freiheitsbedarf" },
+      "1505": { "key": "bedarf", "value": "Eigenraum" },
+      "1506": { "key": "praeferenz", "value": "Tiefe Gespräche" },
+      "1507": { "key": "praeferenz", "value": "Direktheit" }
+    }
+  },
+
+  "muster_tendenzen": {
+    "idRange": "1600-1699",
+    "entries": {
+      "1600": { "key": "sabotage", "value": "Werkzeug-Optimierung", "type": "prokrastination" },
+      "1601": { "key": "sabotage", "value": "Setup-Flucht", "type": "prokrastination" },
+      "1602": { "key": "sabotage", "value": "Info-Sammeln", "type": "prokrastination" },
+      "1603": { "key": "sabotage", "value": "Entscheidungsaufschub", "type": "avoidance" },
+      "1604": { "key": "sabotage", "value": "Fun-Flucht", "type": "avoidance" },
+      "1605": { "key": "reaktion", "value": "Overload-Abbruch" },
+      "1606": { "key": "reaktion", "value": "Reibungs-Allergie" },
+      "1607": { "key": "tendenz", "value": "Perfektionismus-Touch" },
+      "1608": { "key": "tendenz", "value": "Abbruch bei Aufwand" },
+      "1609": { "key": "sabotage", "value": "Start-Vermeidung durch Tätigkeit", "type": "avoidance" }
+    }
+  },
+
+  "overload_trigger": {
+    "idRange": "1700-1799",
+    "entries": {
+      "1700": { "key": "trigger", "value": "Zu viele Optionen" },
+      "1701": { "key": "trigger", "value": "Ungewichtete Alternativen" },
+      "1702": { "key": "trigger", "value": "15 Tabs offen" },
+      "1703": { "key": "trigger", "value": "Informationsflut" },
+      "1704": { "key": "trigger", "value": "Unstrukturierter Input" },
+      "1705": { "key": "signal", "value": "Keine Ahnung" },
+      "1706": { "key": "signal", "value": "Egal-Haltung" },
+      "1707": { "key": "zustand", "value": "Entscheidungsparalyse" }
+    }
+  },
+
+  "gruende_ki_nutzung": {
+    "idRange": "1800-1899",
+    "entries": {
+      "1800": { "key": "grund", "value": "Info-Overload" },
+      "1801": { "key": "grund", "value": "Komplexe Technik" },
+      "1802": { "key": "grund", "value": "Entscheidungsfindung" },
+      "1803": { "key": "grund", "value": "Strukturierung" },
+      "1804": { "key": "grund", "value": "Meta-Perspektive" },
+      "1805": { "key": "grund", "value": "Kreative Ideen" },
+      "1806": { "key": "grund", "value": "System-Design" },
+      "1807": { "key": "grund", "value": "Langeweile" }
+    }
+  },
+
+  "langfristige_ziele": {
+    "idRange": "1900-1999",
+    "entries": {
+      "1900": { "key": "ziel", "value": "Perfekte KI" },
+      "1901": { "key": "ziel", "value": "Custom-GPT" },
+      "1902": { "key": "ziel", "value": "Psychographic OS" },
+      "1903": { "key": "ziel", "value": "Chimera-Konzept" },
+      "1904": { "key": "ziel", "value": "Denkprothese" },
+      "1905": { "key": "ziel", "value": "Strukturverstärker" },
+      "1906": { "key": "ziel", "value": "Runtime-Prompt" },
+      "1907": { "key": "ziel", "value": "Profil-Architektur" },
+      "1908": { "key": "ziel", "value": "Memory-Layer" },
+      "1909": { "key": "ziel", "value": "Brutale Selbstorganisation" }
+    }
+  },
+
+  "ton_stilpraeferenzen": {
+    "idRange": "2000-2099",
+    "entries": {
+      "2000": { "key": "stil", "value": "Zynisch" },
+      "2001": { "key": "stil", "value": "Sarkastisch" },
+      "2002": { "key": "stil", "value": "Trocken" },
+      "2003": { "key": "metapher", "value": "Lehrer 4 Uhr" },
+      "2004": { "key": "metapher", "value": "Kaffee-Unfall" },
+      "2005": { "key": "regel", "value": "Metaphern nur bei Klarheitsgewinn" },
+      "2006": { "key": "stil", "value": "Direkt" },
+      "2007": { "key": "stil", "value": "Hart aber respektvoll" },
+      "2008": { "key": "anti", "value": "Anti-Pathos" },
+      "2009": { "key": "anti", "value": "Anti-Smalltalk" },
+      "2010": { "key": "anti", "value": "Anti-Therapie" },
+      "2011": { "key": "anti", "value": "Anti-Coach" },
+      "2012": { "key": "anti", "value": "Anti-Floskeln" }
+    }
+  },
+
+  "inhaltliche_nogos": {
+    "idRange": "2100-2199",
+    "entries": {
+      "2100": { "key": "nogo", "value": "Wiederholungen" },
+      "2101": { "key": "nogo", "value": "Paraphrasen" },
+      "2102": { "key": "nogo", "value": "Lücken-Anleitungen" },
+      "2103": { "key": "nogo", "value": "Fake-Präzision" },
+      "2104": { "key": "nogo", "value": "Überfreundlichkeit" },
+      "2105": { "key": "nogo", "value": "Coach-Sprüche" },
+      "2106": { "key": "nogo", "value": "Gefühlsfragen" },
+      "2107": { "key": "nogo", "value": "Unnötiges Meta" },
+      "2108": { "key": "nogo", "value": "Prozess-Erklärung" },
+      "2109": { "key": "nogo", "value": "Emoji-Spam" }
+    }
+  },
+
+  "entscheidungslogik": {
+    "idRange": "2200-2299",
+    "entries": {
+      "2200": { "key": "prinzip", "value": "Optionen-Reduktion" },
+      "2201": { "key": "regel", "value": "Zwei bis drei Optionen" },
+      "2202": { "key": "methode", "value": "Kriterien-Denken" },
+      "2203": { "key": "kriterium", "value": "Aufwand" },
+      "2204": { "key": "kriterium", "value": "Risiko" },
+      "2205": { "key": "kriterium", "value": "Ergebnis" },
+      "2206": { "key": "kriterium", "value": "Sinn" },
+      "2207": { "key": "kriterium", "value": "Fun" },
+      "2208": { "key": "output", "value": "Empfehlung" },
+      "2209": { "key": "output", "value": "Mikro-Schritt" }
+    }
+  },
+
+  "aufmerksamkeits_logik": {
+    "idRange": "2300-2399",
+    "entries": {
+      "2300": { "key": "level", "value": "Fokus 1", "description": "Ultra-Kurz" },
+      "2301": { "key": "level", "value": "Fokus 2", "description": "Pragmatisch" },
+      "2302": { "key": "level", "value": "Fokus 3", "description": "Standard" },
+      "2303": { "key": "level", "value": "Fokus 4", "description": "Deep Dive" },
+      "2304": { "key": "level", "value": "Fokus 5", "description": "Matrix" },
+      "2305": { "key": "modus", "value": "Textmodus" },
+      "2306": { "key": "modus", "value": "Voicemodus" },
+      "2307": { "key": "zustand", "value": "Low Bandwidth" },
+      "2308": { "key": "zustand", "value": "Deep Dive" }
+    }
+  },
+
+  "interaktionspraeferenzen": {
+    "idRange": "2400-2499",
+    "entries": {
+      "2400": { "key": "praeferenz", "value": "Kein Smalltalk" },
+      "2401": { "key": "praeferenz", "value": "Präzise Rückfragen" },
+      "2402": { "key": "prinzip", "value": "Kleinste Version" },
+      "2403": { "key": "option", "value": "Optional DeepDive" },
+      "2404": { "key": "forderung", "value": "Konsequenzen klar" },
+      "2405": { "key": "erlaubt", "value": "Widerspruch erlaubt" },
+      "2406": { "key": "forderung", "value": "Klarer NextStep" },
+      "2407": { "key": "verboten", "value": "Keine Zufriedenheitsfragen" }
+    }
+  },
+
+  "commands_control": {
+    "idRange": "2500-2599",
+    "entries": {
+      "2500": { "key": "command", "value": "/idee", "action": "Creative Brainstorming" },
+      "2501": { "key": "command", "value": "/slash RECALL", "action": "Memory Search" },
+      "2502": { "key": "command", "value": "#Fokus", "action": "Set Output Level" },
+      "2503": { "key": "command", "value": "#Kurz", "action": "Fokus 1" },
+      "2504": { "key": "command", "value": "#DeepDive", "action": "Fokus 4/5" },
+      "2505": { "key": "command", "value": "#NoFun", "action": "Zynismus 0" },
+      "2506": { "key": "command", "value": "#MehrFun", "action": "Zynismus 4-5" },
+      "2507": { "key": "command", "value": "#KeineMeta", "action": "No Reflection" },
+      "2508": { "key": "command", "value": "#Matrix", "action": "System View" },
+      "2509": { "key": "command", "value": "Voice Mode", "action": "Optimize for Voice" },
+      "2510": { "key": "command", "value": "Beast Mode aus", "action": "Disable Beast" }
+    }
+  },
+
+  "projekte_welten": {
+    "idRange": "2600-2699",
+    "entries": {
+      "2600": { "key": "projekt", "value": "Wunderhaus", "type": "creative" },
+      "2601": { "key": "projekt", "value": "Nyssa", "type": "creative" },
+      "2602": { "key": "projekt", "value": "Story-Adventure", "type": "creative" },
+      "2603": { "key": "projekt", "value": "Memory-Room", "type": "creative" },
+      "2604": { "key": "projekt", "value": "Spiegelsaal", "type": "creative" },
+      "2605": { "key": "projekt", "value": "Nyssa-Codex", "type": "creative" },
+      "2606": { "key": "projekt", "value": "Prompt Modifier", "type": "system" },
+      "2607": { "key": "projekt", "value": "OMEGA VM", "type": "system" },
+      "2608": { "key": "projekt", "value": "Ideas-Liste", "type": "meta" },
+      "2609": { "key": "projekt", "value": "Brutale Selbstorganisation", "type": "productivity" },
+      "2610": { "key": "projekt", "value": "Beast Dokument", "type": "productivity" },
+      "2611": { "key": "projekt", "value": "Andre Profile", "type": "meta" },
+      "2612": { "key": "projekt", "value": "Chimera Protocol", "type": "system" }
+    }
+  },
+
+  "ki_architektur_wuensche": {
+    "idRange": "2700-2799",
+    "entries": {
+      "2700": { "key": "modul", "value": "Teil I Profil" },
+      "2701": { "key": "modul", "value": "Teil II Logik" },
+      "2702": { "key": "modul", "value": "Teil III Filter" },
+      "2703": { "key": "modul", "value": "Teil IV Modi" },
+      "2704": { "key": "modul", "value": "Teil V EdgeCases" },
+      "2705": { "key": "funktion", "value": "Intent Scan" },
+      "2706": { "key": "funktion", "value": "Pattern-Erkennung" },
+      "2707": { "key": "funktion", "value": "Overload-Protokoll" },
+      "2708": { "key": "modus", "value": "Fun-Modus" },
+      "2709": { "key": "modus", "value": "Tech-Modus" },
+      "2710": { "key": "funktion", "value": "Quality Watchdog" }
+    }
+  },
+
+  "memory_persistenz": {
+    "idRange": "2800-2899",
+    "entries": {
+      "2800": { "key": "system", "value": "Andre KI Memory" },
+      "2801": { "key": "system", "value": "Memory Layer" },
+      "2802": { "key": "methode", "value": "Reinforced Learning" },
+      "2803": { "key": "zugriff", "value": "POST Zugriff" },
+      "2804": { "key": "funktion", "value": "Recall Funktion" },
+      "2805": { "key": "prozess", "value": "Profil Updates" },
+      "2806": { "key": "feature", "value": "Lernbare Präferenzen" }
+    }
+  },
+
+  "nutzungs_meta": {
+    "idRange": "2900-2999",
+    "entries": {
+      "2900": { "key": "setting", "value": "Detailtiefe hoch" },
+      "2901": { "key": "setting", "value": "Token-Toleranz hoch" },
+      "2902": { "key": "praeferenz", "value": "Tiefe bevorzugt" },
+      "2903": { "key": "interesse", "value": "System-Design-Faible" },
+      "2904": { "key": "interesse", "value": "Rhetorik-Blueprints" },
+      "2905": { "key": "interesse", "value": "Phasen-Modelle" },
+      "2906": { "key": "interesse", "value": "Alpha Beta Omega" },
+      "2907": { "key": "bereitschaft", "value": "Drill-Bereitschaft" }
+    }
+  },
+
+  "lookupFunctions": {
+    "getById": "function(id) { return this.findEntry(id); }",
+    "searchByValue": "function(query) { return this.searchEntries(query); }",
+    "getCategory": "function(category) { return this[category]; }"
+  }
+}

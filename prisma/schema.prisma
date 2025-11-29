@@ -1,0 +1,440 @@
+// Prisma Schema for Zentralisierungs_Projekt_BIG.DATA.OMEGA V1.0
+// Database: PostgreSQL
+// Purpose: Data persistence for personalized KI-Agent system
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ═══════════════════════════════════════════════════
+// USER & AUTHENTICATION
+// ═══════════════════════════════════════════════════
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String
+  
+  // Profile settings based on Andre_profil_full_refined.txt
+  settings      UserSettings?
+  
+  // Related data
+  prompts       Prompt[]
+  sessions      ChatSession[]
+  backups       Backup[]
+  ideas         Idea[]
+  
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastLoginAt   DateTime?
+}
+
+model UserSettings {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // KI-Agent settings from profile
+  fokusDefault    Int      @default(3)    // 1-5 scale
+  zynismusLevel   Int      @default(3)    // 1-5 scale
+  defaultMode     String   @default("normal") // normal, beast, creative, etc.
+  
+  // UI preferences
+  darkMode        Boolean  @default(true)
+  language        String   @default("de")
+  
+  // Integrations
+  googleDriveSync Boolean  @default(false)
+  googleDriveToken String? // Encrypted token
+  
+  // Gamification
+  xpTotal         Int      @default(0)
+  level           Int      @default(1)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ═══════════════════════════════════════════════════
+// PROMPT MANAGEMENT SYSTEM
+// ═══════════════════════════════════════════════════
+
+model Prompt {
+  id          String          @id @default(cuid())
+  userId      String
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Content
+  title       String
+  content     String          @db.Text
+  description String?
+  
+  // Organization
+  category    String?
+  tags        String[]
+  
+  // Status
+  isPublic    Boolean         @default(false)
+  isFavorite  Boolean         @default(false)
+  usageCount  Int             @default(0)
+  
+  // Versioning
+  version     Int             @default(1)
+  versions    PromptVersion[]
+  
+  // Enhancements
+  enhancements PromptEnhancement[]
+  
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  
+  @@index([userId])
+  @@index([category])
+  @@index([tags])
+}
+
+model PromptVersion {
+  id          String   @id @default(cuid())
+  promptId    String
+  prompt      Prompt   @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  
+  content     String   @db.Text
+  version     Int
+  changeNote  String?
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([promptId])
+}
+
+model PromptEnhancement {
+  id              String   @id @default(cuid())
+  promptId        String
+  prompt          Prompt   @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  
+  originalContent String   @db.Text
+  enhancedContent String   @db.Text
+  enhancementType String   // clarity, detail, brevity, creative
+  
+  // AI metadata
+  model           String?
+  tokensUsed      Int?
+  
+  accepted        Boolean  @default(false)
+  
+  createdAt       DateTime @default(now())
+  
+  @@index([promptId])
+}
+
+model PromptCategory {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  color       String?  // Hex color for UI
+  icon        String?  // Icon identifier
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ═══════════════════════════════════════════════════
+// CHAT & SESSION MANAGEMENT
+// ═══════════════════════════════════════════════════
+
+model ChatSession {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title       String?
+  
+  // Session context
+  context     Json?     // Stored context for continuity
+  fokusLevel  Int       @default(3)
+  mode        String    @default("normal")
+  
+  // Messages
+  messages    ChatMessage[]
+  
+  // Status
+  isActive    Boolean   @default(true)
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@index([userId])
+  @@index([isActive])
+}
+
+model ChatMessage {
+  id          String      @id @default(cuid())
+  sessionId   String
+  session     ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  
+  role        String      // user, assistant, system
+  content     String      @db.Text
+  
+  // Metadata
+  metadata    Json?       // Commands parsed, tokens used, etc.
+  
+  createdAt   DateTime    @default(now())
+  
+  @@index([sessionId])
+}
+
+// ═══════════════════════════════════════════════════
+// IDEAS & BLUEPRINTS
+// ═══════════════════════════════════════════════════
+
+model Idea {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title       String
+  content     String    @db.Text
+  
+  // Organization
+  category    String?
+  tags        String[]
+  
+  // Hierarchy
+  parentId    String?
+  parent      Idea?     @relation("IdeaHierarchy", fields: [parentId], references: [id])
+  children    Idea[]    @relation("IdeaHierarchy")
+  
+  // Status
+  status      String    @default("draft") // draft, active, archived, completed
+  priority    Int       @default(0)       // 0-5 scale
+  
+  // Links to other ideas
+  linkedIds   String[]
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@index([userId])
+  @@index([parentId])
+  @@index([status])
+}
+
+model Blueprint {
+  id          String    @id @default(cuid())
+  
+  name        String    @unique
+  description String?
+  content     Json      // Structured blueprint data
+  
+  // Categorization
+  type        String    // project, workflow, system, creative
+  tags        String[]
+  
+  // Usage
+  usageCount  Int       @default(0)
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@index([type])
+}
+
+// ═══════════════════════════════════════════════════
+// GAMIFICATION SYSTEM
+// ═══════════════════════════════════════════════════
+
+model Achievement {
+  id          String    @id @default(cuid())
+  
+  name        String    @unique
+  description String
+  icon        String?
+  
+  // Requirements
+  xpReward    Int       @default(0)
+  requirement Json      // Conditions to unlock
+  
+  // Tracking
+  unlockedBy  UserAchievement[]
+  
+  createdAt   DateTime  @default(now())
+}
+
+model UserAchievement {
+  id            String      @id @default(cuid())
+  
+  userId        String
+  achievementId String
+  achievement   Achievement @relation(fields: [achievementId], references: [id])
+  
+  unlockedAt    DateTime    @default(now())
+  
+  @@unique([userId, achievementId])
+}
+
+model Quest {
+  id          String    @id @default(cuid())
+  
+  title       String
+  description String
+  
+  // Quest type
+  type        String    // main, side, daily
+  
+  // Rewards
+  xpReward    Int       @default(0)
+  
+  // Requirements
+  requirements Json
+  
+  // Status per user
+  userProgress UserQuest[]
+  
+  isActive    Boolean   @default(true)
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model UserQuest {
+  id        String   @id @default(cuid())
+  
+  userId    String
+  questId   String
+  quest     Quest    @relation(fields: [questId], references: [id])
+  
+  progress  Json     @default("{}")
+  status    String   @default("active") // active, completed, abandoned
+  
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  
+  @@unique([userId, questId])
+}
+
+// ═══════════════════════════════════════════════════
+// BACKUP & SYNC
+// ═══════════════════════════════════════════════════
+
+model Backup {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Storage info
+  driveFileId String?  // Google Drive file ID
+  localPath   String?  // Local backup path
+  
+  // Backup metadata
+  size        Int?     // Size in bytes
+  dataHash    String?  // For integrity check
+  
+  // Backup content
+  backupType  String   // full, incremental, prompts, settings
+  
+  // Status
+  status      String   @default("pending") // pending, in_progress, completed, failed
+  errorMessage String?
+  
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+  
+  @@index([userId])
+  @@index([status])
+}
+
+// ═══════════════════════════════════════════════════
+// MEMORY & LEARNING
+// ═══════════════════════════════════════════════════
+
+model MemoryEntry {
+  id        String   @id @default(cuid())
+  
+  // Content
+  key       String
+  value     String   @db.Text
+  
+  // Categorization
+  category  String   // fact, preference, pattern, correction
+  
+  // Learning metadata
+  source    String?  // session, explicit, inferred
+  confidence Float   @default(1.0)
+  usageCount Int     @default(0)
+  
+  // Status
+  isActive  Boolean  @default(true)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([key])
+  @@index([category])
+}
+
+model PatternLog {
+  id          String   @id @default(cuid())
+  
+  // Pattern identification
+  patternType String   // self_sabotage, overload, productive
+  signal      String   // What triggered detection
+  
+  // Context
+  sessionId   String?
+  context     Json?
+  
+  // Response
+  intervention String? // What action was taken
+  wasEffective Boolean?
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([patternType])
+}
+
+// ═══════════════════════════════════════════════════
+// TOOLS & INTEGRATIONS
+// ═══════════════════════════════════════════════════
+
+model Tool {
+  id          String   @id @default(cuid())
+  
+  name        String   @unique
+  description String?
+  
+  // Tool configuration
+  type        String   // internal, api, workflow
+  config      Json     // Tool-specific configuration
+  
+  // Status
+  isActive    Boolean  @default(true)
+  
+  // Usage tracking
+  usageCount  Int      @default(0)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Workflow {
+  id          String   @id @default(cuid())
+  
+  name        String   @unique
+  description String?
+  
+  // Workflow definition
+  steps       Json     // Array of tool chains
+  
+  // Status
+  isActive    Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
